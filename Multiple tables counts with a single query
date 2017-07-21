@@ -1,0 +1,18 @@
+How can we get a count of rows in a table, Multiple tables counts with a single query
+
+SELECT TABLE_NAME, SUM( TABLE_ROWS ) 
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME
+IN (
+'table1',  'table2',  'table3',  'table4',  'table5'
+)
+GROUP BY TABLE_NAME
+
+output:
+TABLE_NAME  COUNT
+===================
+table1      10
+table2      20
+table3      15
+table4      5
+table5      8
